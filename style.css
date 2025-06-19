@@ -35,11 +35,42 @@ body {
     overflow-y: auto;
 }
 
-/* Date Block Styling */
+/* --- START: MODIFIED SECTION FOR HEADER LAYOUT --- */
+
+/* NEW: A Flexbox container for the top row */
+.header-block {
+    display: flex;
+    justify-content: space-between;
+    /* Pushes items to opposite ends */
+    align-items: center;
+    /* Vertically aligns them */
+    margin-bottom: 3rem;
+    /* The margin now belongs to the parent */
+}
+
+/* MODIFIED: Audio Player is now a flex item */
+#audio-player-container {
+    flex: 1;
+    /* Allows the player to take up available space */
+    max-width: 65%;
+    /* Prevents it from getting too wide */
+    margin-right: 2rem;
+    /* Adds space between player and date */
+}
+
+#audio-player-container audio {
+    width: 100%;
+    height: 40px;
+}
+
+/* MODIFIED: Date Block is now a flex item */
 .date-block {
     text-align: right;
-    margin-bottom: 3rem;
+    margin-bottom: 0;
+    /* Margin is now on the parent .header-block */
 }
+
+/* --- END: MODIFIED SECTION --- */
 
 .date {
     font-style: italic;
@@ -53,16 +84,6 @@ body {
     color: #999;
     font-style: italic;
     margin: 4px 0 0 0;
-}
-
-/* --- NEW: Audio Player Styling --- */
-#audio-player-container {
-    margin-bottom: 2rem;
-}
-
-#audio-player-container audio {
-    width: 100%;
-    height: 40px;
 }
 
 /* Letter Body Styling */
@@ -93,6 +114,7 @@ body {
     margin: 0;
 }
 
+/* Your custom signature styling is preserved */
 .signature {
     font-family: 'Dancing Script', cursive;
     font-size: 2.5rem;
@@ -101,7 +123,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* --- NEW: Extra Links Styling --- */
+/* Your custom extra-links styling is preserved */
 .extra-links {
     /* margin-top: 1rem; */
     font-size: 0.8rem;
@@ -123,6 +145,7 @@ body {
     margin: 0 0.5rem;
 }
 
+/* Your custom seal styling is preserved */
 .seal {
     font-size: 3.5rem;
     color: #c9a46a;
@@ -145,6 +168,25 @@ body {
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
+
+    /* NEW: Responsive rules for the header */
+    .header-block {
+        flex-direction: column;
+        /* Stack them vertically on mobile */
+        align-items: flex-end;
+        /* Align both to the right */
+        gap: 1.5rem;
+        /* Add space between them when stacked */
+    }
+
+    #audio-player-container {
+        max-width: 100%;
+        /* Allow audio to take full width */
+        width: 100%;
+        margin-right: 0;
+    }
+
+    /* Your existing mobile styles */
     .letter-container {
         padding: 3rem 2.5rem;
         aspect-ratio: unset;

@@ -16,12 +16,15 @@
     <body>
         <div class="letter-container">
             <div class="letter-content">
-                <div class="date-block">
-                    <p class="date"></p>
-                    <p class="relative-time"></p>
+                <div class="header-block">
+                    <!-- Audio player is now inside the header block -->
+                    <div id="audio-player-container"></div>
+                    <!-- Date block is also inside the header block -->
+                    <div class="date-block">
+                        <p class="date"></p>
+                        <p class="relative-time"></p>
+                    </div>
                 </div>
-                <!-- NEW: Container for the dynamic audio player -->
-                <div id="audio-player-container"></div>
                 <h1 class="salutation"></h1>
                 <div class="letter-body"></div>
                 <div class="closing-block">

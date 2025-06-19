@@ -1,6 +1,6 @@
 window.onload = function () {
     // --- CONFIGURATION ---
-    const staticDateString = "2025-06-19T10:40:00";
+    const staticDateString = "2025-06-20T08:00:00";
 
     // --- PERSONALIZED PEOPLE DATA ---
     // Use `audio: true` to indicate an audio file exists.
@@ -45,7 +45,7 @@ Thank you for your patience, your encouragement, and for pushing me to be a bett
         },
         ms_cholevas: {
             name: "Ms. Cholevas",
-            message: ``,
+            message: `P.S.: Here's the [French advertisement project](https://photos.app.goo.gl/HJXwLLDJ8qJSLA9p6)!`,
         },
         mr_klose: {
             name: "Mr. Klose",
