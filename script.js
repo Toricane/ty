@@ -49,7 +49,11 @@ Thank you for your patience, your encouragement, and for pushing me to be a bett
         },
         mr_klose: {
             name: "Mr. Klose",
-            message: ``,
+            message: `
+Thank you for always supporting me throughout high school! I've known you since the Computer Studies 10 class in grade 9, and I loved sharing my passion for computer programming with you. Thank you for being so open to the sharing of my ideas and projects, and for always pushing me to strive for more.
+
+I really enjoyed the times when you would talk to me about cool ideas or just random things that you found interesting. I liked the self-directed nature of the classes you taught, and I appreciated how you let me work on my own projects, like [Connect Four with AI](https://prajwal.is-a.dev/connect4), JARVIS, and more. Thank you for always being there for me, and I hope to keep in touch with you in the future!
+            `,
         },
         mr_mcdowell: {
             name: "Mr. McDowell",
