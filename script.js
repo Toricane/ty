@@ -12,6 +12,10 @@ I wanted to take a moment to thank you for an incredible year in AP Calculus. Yo
 Thank you for your patience, your encouragement, and for pushing me to be a better student. I'll carry the lessons I learned from you far beyond just mathematics.
             `,
         },
+        ms_hendrix: {
+            name: "Ms. Hendrix",
+            message: ``,
+        },
         mr_sandhu: {
             name: "Mr. Sandhu",
             message: ``,
@@ -78,6 +82,10 @@ Thank you for your patience, your encouragement, and for pushing me to be a bett
         },
         mr_li: {
             name: "Mr. Li",
+            message: ``,
+        },
+        mr_hockley: {
+            name: "Mr. Hockley",
             message: ``,
         },
         mr_leung: {
