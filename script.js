@@ -78,6 +78,7 @@ Thank you for being such a nice teacher. I loved the way you taught me physics, 
 
 Thank you for taking us to UBC Physics Olympics, and also helping us with the Kwantlen Science Challenge. I really enjoyed the time I spent with you outside of class. I also enjoyed going to PNE with you and others. Thanks for the pickleball field trip, too! I wish I had played more pickleball with you. Thanks for being my teacher, and I hope to keep in touch with you in the future!
             `,
+            audio: true,
         },
         ms_daly: {
             name: "Ms. Daly",
