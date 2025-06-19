@@ -10,9 +10,9 @@ window.onload = function () {
             name: "Example Person",
             audio: true, // The audio file is assumed to be `audio/example.mp3`
             message: `
-I wanted to take a moment to thank you for an incredible year in AP Calculus. Your passion for the subject was infectious, and you had a unique ability to make even the most complex topics feel understandable and, dare I say, fun. The "aha!" moments I had in your class are something I'll never forget.
+Example text. Hello there!
 
-Thank you for your patience, your encouragement, and for pushing me to be a better student. I'll carry the lessons I learned from you far beyond just mathematics.
+ABCDEFG, ths is another **paragraph**.
             `,
         },
         ms_hendrix: {
