@@ -90,7 +90,7 @@ P.S.: ***Pomegranate** ions are yummy!*
             message: `
 Thank you for always supporting me throughout high school! I loved how you made time for me on your busy schedule for Model UN Club and for just talking about things that I'm up to. I liked hearing your stories and perspectives on global issues, conferences that you've attended, and your research projects which you're involved in. You inspire me to push myself and be involved in things which I'm passionate about so I can tell my own stories and be an interesting person, like you.
 
-Thank you for sponsoring the Model UN Club! I'm grateful for your 
+Thank you for sponsoring the Model UN Club! I'm grateful for the times when you assisted us 
             `,
         },
         mr_lou: {
@@ -130,7 +130,10 @@ Thank you for sponsoring the Green Team! I enjoyed spending time advocating for 
         },
         mr_wang: {
             name: "Mr. Wang",
-            message: ``,
+            message: `
+Thank you for taking me on the biology field trip, even though I didn't take biology, like at all! Also, I still remember the time when you walked by a table in Mr. Luk's room where I was sitting with Hubert, Sara, and other people from AP Biology. You said "Good job" to me, and I don't know the context :)
+            `,
+            audio: true,
         },
         mr_blair: {
             name: "Mr. Blair",
