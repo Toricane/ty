@@ -73,7 +73,11 @@ I really enjoyed the times when you would talk to me about cool ideas or just ra
         },
         mr_lou: {
             name: "Mr. Lou",
-            message: ``,
+            message: `
+Thank you for being such a nice teacher. I loved the way you taught me physics, it was very intuitive to me because it was always step-by-step and you used very interesting examples. I still remember when you used to use Jamboard and how you were frustrated with OneNote! Many people don't realize how funny and lighthearted you are. I will remember that example when you were talking about action-reaction forces and you said *"If I punch you, you punch me back!"* Also when you said we need to *"strip the clothes"* to isolate the variables in physics problems. I'll never forget how much fun I had in your class, and how you always made it enjoyable.
+
+Thank you for taking us to UBC Physics Olympics, and also helping us with the Kwantlen Science Challenge. I really enjoyed the time I spent with you outside of class. I also enjoyed going to PNE with you and others. Thanks for the pickleball field trip, too! I wish I had played more pickleball with you. Thanks for being my teacher, and I hope to keep in touch with you in the future!
+            `,
         },
         ms_daly: {
             name: "Ms. Daly",
