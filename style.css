@@ -114,20 +114,28 @@ body {
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
+
+    /* Make the letter's padding smaller on mobile */
     .letter-container {
         padding: 3rem 2.5rem;
         aspect-ratio: unset;
         min-height: 80vh;
     }
 
+    /* Reduce the font size of the main heading */
     .salutation {
         font-size: 1.5rem;
     }
 
+    /* Reduce body font size and tighten the line spacing */
     .letter-body p {
         font-size: 1rem;
+        /* Reduced from 1.05rem */
+        line-height: 1.7;
+        /* Reduced from 1.9 for less space */
     }
 
+    /* Scale down the signature and seal to fit better */
     .signature {
         font-size: 2rem;
     }
