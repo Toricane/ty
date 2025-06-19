@@ -169,23 +169,6 @@ body {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
 
-    /* NEW: Responsive rules for the header */
-    .header-block {
-        flex-direction: column;
-        /* Stack them vertically on mobile */
-        align-items: flex-end;
-        /* Align both to the right */
-        gap: 1.5rem;
-        /* Add space between them when stacked */
-    }
-
-    #audio-player-container {
-        max-width: 100%;
-        /* Allow audio to take full width */
-        width: 100%;
-        margin-right: 0;
-    }
-
     /* Your existing mobile styles */
     .letter-container {
         padding: 3rem 2.5rem;
