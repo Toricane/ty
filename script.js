@@ -54,6 +54,7 @@ Thank you for always supporting me throughout high school! I've known you since 
 
 I really enjoyed the times when you would talk to me about cool ideas or just random things that you found interesting. I liked the self-directed nature of the classes you taught, and I appreciated how you let me work on my own projects, like [Connect Four with AI](https://prajwal.is-a.dev/connect4), JARVIS, and more. Thank you for always being there for me, and I hope to keep in touch with you in the future!
             `,
+            audio: true,
         },
         mr_mcdowell: {
             name: "Mr. McDowell",
@@ -61,7 +62,24 @@ I really enjoyed the times when you would talk to me about cool ideas or just ra
         },
         mr_luk: {
             name: "Mr. Luk",
-            message: ``,
+            message: `
+What will I do without you? I still cannot believe that I'm graduating. I'll miss you so much!
+
+I've known you since grade 9, not as a teacher, but as someone who enjoys playing chess with me. I remember how I would play chess with you during lunch or after school, and how invested you were into each game. It's funny how I knew you and you knew me for as long as you have taught me, before you taught me in grade 11 and 12.
+
+Thank you for opening up your room for lunch. I loved hanging out with my friends in your room, and I'm grateful that you let us eat lunch in your room, even if there were *chemicals* in there.
+
+Thank you for always being open to hearing what I have to say, no matter how cool, random, serious, or weird it was. I'm grateful for having someone who I can talk to about anything.
+
+Thank you for taking us to the Kwantlen Science Challenge many times! I appreciate how much you cared about us. I will remember how we glued your face to the green "bridge" for the janky car.
+
+I hate unassigned assigned seating. Why did I sit in the back of the class? Well, I think it helped me understand the chemistry concepts better, because I got busy teaching Jacky. I liked how the chemistry labs were so chill, like we didn't do many prelabs. It was a really chill class.
+
+I'll miss chilling with you, and I hope to keep in touch with you in the future!
+
+P.S.: ***Pomegranate** ions are yummy!*
+            `,
+            audio: true,
         },
         mr_b_chiang: {
             name: "Mr. B. Chiang",
