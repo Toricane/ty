@@ -3,9 +3,12 @@ window.onload = function () {
     const staticDateString = "2025-06-19T10:40:00";
 
     // --- PERSONALIZED PEOPLE DATA ---
+    // Use `audio: true` to indicate an audio file exists.
+    // The filename is now automatically assumed to be `key.mp3`.
     const pData = {
         example: {
             name: "Example Person",
+            audio: true, // The audio file is assumed to be `audio/example.mp3`
             message: `
 I wanted to take a moment to thank you for an incredible year in AP Calculus. Your passion for the subject was infectious, and you had a unique ability to make even the most complex topics feel understandable and, dare I say, fun. The "aha!" moments I had in your class are something I'll never forget.
 
@@ -40,8 +43,8 @@ Thank you for your patience, your encouragement, and for pushing me to be a bett
             name: "Ms. Padmanabhan",
             message: ``,
         },
-        mrs_cholevas: {
-            name: "Mrs. Cholevas",
+        ms_cholevas: {
+            name: "Ms. Cholevas",
             message: ``,
         },
         mr_klose: {
@@ -108,7 +111,7 @@ Thank you for your patience, your encouragement, and for pushing me to be a bett
             name: "Ms. Chin",
             message: ``,
         },
-        // ... add your other people here ...
+        // ... add your other people here, adding `audio: true` where needed ...
         default: {
             name: "visitor",
             message: `
@@ -129,17 +132,28 @@ To see a specific message, add **?p=name** to the end of the URL.
     const relativeTimeEl = document.querySelector(".relative-time");
     const salutationEl = document.querySelector(".salutation");
     const bodyEl = document.querySelector(".letter-body");
+    const audioContainer = document.getElementById("audio-player-container");
+
+    // Logic to create and inject the audio player
+    // 1. Check if the `audio` property is true.
+    // 2. If it is, create the audio player using the person's key as the filename.
+    if (p.audio && pKey) {
+        // Also check if pKey exists to avoid errors on the default page
+        const audioEl = document.createElement("audio");
+        audioEl.src = `audio/${pKey}.mp3`; // Dynamically creates the path
+        audioEl.controls = true;
+        audioEl.preload = "metadata";
+        audioContainer.appendChild(audioEl);
+    }
 
     const staticDate = new Date(staticDateString);
 
-    // Set the static date display
     dateEl.textContent = staticDate.toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "numeric",
     });
 
-    // Set the dynamic relative time display using Day.js
     dayjs.extend(window.dayjs_plugin_relativeTime);
     relativeTimeEl.textContent = dayjs(staticDate).fromNow();
 
