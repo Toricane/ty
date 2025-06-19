@@ -129,7 +129,7 @@ body {
 
     /* Reduce body font size and tighten the line spacing */
     .letter-body p {
-        font-size: 1rem;
+        font-size: 0.9rem;
         /* Reduced from 1.05rem */
         line-height: 1.7;
         /* Reduced from 1.9 for less space */
