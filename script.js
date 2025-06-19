@@ -87,7 +87,11 @@ P.S.: ***Pomegranate** ions are yummy!*
         },
         ms_datoo: {
             name: "Ms. Datoo",
-            message: ``,
+            message: `
+Thank you for always supporting me throughout high school! I loved how you made time for me on your busy schedule for Model UN Club and for just talking about things that I'm up to. I liked hearing your stories and perspectives on global issues, conferences that you've attended, and your research projects which you're involved in. You inspire me to push myself and be involved in things which I'm passionate about so I can tell my own stories and be an interesting person, like you.
+
+Thank you for sponsoring the Model UN Club! I'm grateful for your 
+            `,
         },
         mr_lou: {
             name: "Mr. Lou",
@@ -96,7 +100,6 @@ Thank you for being such a nice teacher. I loved the way you taught me physics, 
 
 Thank you for taking us to UBC Physics Olympics, and also helping us with the Kwantlen Science Challenge. I really enjoyed the time I spent with you outside of class. I also enjoyed going to PNE with you and others. Thanks for the pickleball field trip, too! I wish I had played more pickleball with you. Thanks for being my teacher, and I hope to keep in touch with you in the future!
             `,
-            audio: true,
         },
         ms_daly: {
             name: "Ms. Daly",
@@ -116,10 +119,17 @@ Thank you for taking us to UBC Physics Olympics, and also helping us with the Kw
         },
         mr_hockley: {
             name: "Mr. Hockley",
-            message: ``,
+            message: `
+Thank you for sponsoring the Green Team! I enjoyed spending time advocating for the environment and eating lunch in your room. Although you weren't my teacher, I enjoyed talking with you about things that I'm up to and just in general, too. I hope to keep in touch with you in the future!
+            `,
+            audio: true,
         },
         mr_leung: {
             name: "Mr. Leung",
+            message: ``,
+        },
+        mr_wang: {
+            name: "Mr. Wang",
             message: ``,
         },
         mr_blair: {
