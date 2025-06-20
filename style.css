@@ -16,7 +16,7 @@ body {
 /* The main letter "paper" */
 .letter-container {
     background-color: #fdfaf2;
-    background-image: url('paper-texture.png');
+    background-image: url('paper-texture.webp');
     background-size: cover;
     width: 100%;
     max-width: 800px;
