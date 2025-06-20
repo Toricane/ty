@@ -181,7 +181,9 @@ Thank you for taking me on the biology field trip, even though I didn't take bio
         },
         ms_mei: {
             name: "Ms. Mei",
-            message: ``,
+            message: `
+Thank you so much for being the teacher librarian! I loved your soft tone and how kind you were to everyone. Thank you for the times when you were curious about what I've been up to. I enjoyed preparing for the Kwantlen Science Challenge with you, and I learned a lot from you. I enjoyed going on the UBC field trip with you as well. Thank you for watching my capstone presentation, and for always being supportive of my ideas and projects. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
+            `,
         },
         ms_wu: {
             name: "Ms. Wu",
@@ -189,6 +191,14 @@ Thank you for taking me on the biology field trip, even though I didn't take bio
         },
         ms_sadler: {
             name: "Ms. Sadler",
+            message: ``,
+        },
+        mr_nguyen: {
+            name: "Mr. Nguyen",
+            message: ``,
+        },
+        ms_hans: {
+            name: "Ms. Hans",
             message: ``,
         },
         mr_blair: {
