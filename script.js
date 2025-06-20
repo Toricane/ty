@@ -193,15 +193,21 @@ Thank you for being the library technician! I appreciated all the times when you
         },
         ms_sadler: {
             name: "Ms. Sadler",
-            message: ``,
+            message: `
+Thank you for taking me on the UBC field trip! Although it was my second time on this exact field trip, the artwork was still intriguing and I learned a lot from it. I appreciate the times you've printed my documents for me, and for always being so kind and helpful. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
+            `,
         },
         mr_nguyen: {
             name: "Mr. Nguyen",
-            message: ``,
+            message: `
+Thank you for the time when you supported us at the RichMUN conference! I liked how helpful and kind you were, and how you always made sure that we were doing well. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
+            `,
         },
         ms_hans: {
             name: "Ms. Hans",
-            message: ``,
+            message: `
+Thank you for the times when you sponsored our MUN club meetings! I really appreciate your support and encouragement. I also enjoyed the time when you taught us how to quote sources, which I still use to this day. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
+            `,
         },
         mr_blair: {
             name: "Mr. Blair",
