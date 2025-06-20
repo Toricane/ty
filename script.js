@@ -187,7 +187,9 @@ Thank you so much for being the teacher librarian! I loved your soft tone and ho
         },
         ms_wu: {
             name: "Ms. Wu",
-            message: ``,
+            message: `
+Thank you for being the library technician! I appreciated all the times when you would help me with printing documents and 3D printing parts for projects. I remember sometimes you would let me print more without charging me, and I really appreciate that. I enjoyed the times when you would talk to me about things that I'm up to. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
+            `,
         },
         ms_sadler: {
             name: "Ms. Sadler",
