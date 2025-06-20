@@ -209,6 +209,12 @@ Thank you for the time when you supported us at the RichMUN conference! I liked 
 Thank you for the times when you sponsored our MUN club meetings! I really appreciate your support and encouragement. I also enjoyed the time when you taught us how to quote sources, which I still use to this day. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
             `,
         },
+        mr_thomas: {
+            name: "Mr. Thomas",
+            message: `
+Thank you for all the times that you spent talking to me in the hallways! I really enjoyed our conversations, and I liked how you were always so open to hearing my ideas and projects. I enjoyed it when you taught our math class when you were a student teacher. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
+            `,
+        },
         mr_blair: {
             name: "Mr. Blair",
             message: `
@@ -217,11 +223,15 @@ Thank you so much for everything that you do! I know that you are very busy arou
         },
         ms_macdonald: {
             name: "Ms. MacDonald",
-            message: ``,
+            message: `
+Thank you for organizing all the fun events at school, especially the graduation events! Thank you for the times when you gave me the awards in grade 11 and 12, and for choosing me to be the class valedictorian! I really enjoyed the time I spent with you, and I hope to keep in touch with you in the future!
+            `,
         },
         mr_o: {
             name: "Mr. Onukwulu",
-            message: ``,
+            message: `
+Thank you for being a cool guy with a great vibe! I liked your personality and all the times that you'd say *"Let's go to class!"* in the morning when I was late. Thank youf or being there for me! I wish I had spent more time with you, and I hope to keep in touch with you in the future!
+            `,
         },
         ms_chin: {
             name: "Ms. Chin",
