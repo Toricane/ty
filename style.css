@@ -202,10 +202,20 @@ body {
         --page-padding: 1.5rem;
     }
 
+    body {
+        padding: var(--spacing-sm);
+    }
+
+    .letter-container {
+        width: 100%;
+        max-width: 100%;
+        align-items: center;
+    }
+
     .letter-page {
         width: 92vw;
         height: calc(92vw * 11 / 8.5);
-        max-width: 96vw;
+        max-width: 92vw;
         max-height: none;
         aspect-ratio: var(--page-aspect-ratio);
         padding: var(--page-padding);
