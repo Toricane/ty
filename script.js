@@ -122,7 +122,7 @@ Thank you for always supporting me throughout high school! I loved how you made 
 
 Thank you for sponsoring the Model UN Club! I'm grateful for the times when you assisted us when we were going over the national style of debate and about the procedure of MUN. Your presence and involvement insured that the club ran smoothly and better than before.
 
-I'm grateful for being in your Literary Studies 11 AP class. I feel like it prepared me a lot for AP English because we did a wide variety of things, which all felt familiar this year. one memorable moment was when I played the role of Macbeth. I enjoyed how interactive your lessons were, and I had a lot of fun in your class!
+I'm grateful for being in your Literary Studies 11 AP class. I feel like it prepared me a lot for AP English because we did a wide variety of things, which all felt familiar this year. One memorable moment was when I played the role of Macbeth. I enjoyed how interactive your lessons were, and I had a lot of fun in your class!
 
 Last, but not least, thank you for supporting me through difficult times. I'll miss being able to talk with you, and I hope to keep in touch with you in the future!
             `,
