@@ -385,8 +385,11 @@ To see a specific message, add **?p=name** to the end of the URL.
 
         function fitsInPage(node) {
             currentContent.appendChild(node);
+            // Add a buffer to prevent overflow
+            const buffer = 8; // px
             const fits =
-                currentContent.scrollHeight <= currentPage.offsetHeight;
+                currentContent.scrollHeight <=
+                currentPage.offsetHeight - buffer;
             currentContent.removeChild(node);
             return fits;
         }

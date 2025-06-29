@@ -31,7 +31,6 @@ body {
     width: 100%;
     max-width: 800px;
     aspect-ratio: 8.5 / 11;
-    /* Fallback for browsers that don't support aspect-ratio well */
     height: calc(800px * 11 / 8.5);
     max-height: calc(800px * 11 / 8.5);
     min-height: 0;
@@ -40,6 +39,7 @@ body {
     border-radius: 4px;
     padding: 4rem 5rem;
     box-sizing: border-box;
+    margin: 0 auto;
     animation: unfold 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
     opacity: 0;
     transform-origin: center center;
@@ -114,7 +114,7 @@ body {
     font-size: 1.05rem;
     line-height: 1.9;
     text-align: justify;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.05rem;
 }
 
 /* Closing Block Styling */
@@ -185,32 +185,38 @@ body {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 800px) {
     .letter-page {
-        width: 100vw;
-        height: calc(100vw * 11 / 8.5);
-        max-width: none;
+        width: 92vw;
+        height: calc(92vw * 11 / 8.5);
+        max-width: 96vw;
         max-height: none;
         aspect-ratio: 8.5 / 11;
-        padding: 3rem 2.5rem;
+        padding: 1.5rem 1.5rem;
+        margin: 0 auto;
+        box-sizing: border-box;
     }
 
     .salutation {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .letter-body p {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         line-height: 1.7;
     }
 
     .signature {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     .seal {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .extra-links {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .date, .relative-time {
+        font-size: 0.8rem;
     }
 }
