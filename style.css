@@ -6,20 +6,29 @@ body {
     color: #4a4a4a;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     perspective: 1000px;
 }
 
-/* The main letter "paper" */
+/* The main letter "paper" - now acts as a container for multiple pages */
 .letter-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Remove the aspect-ratio and other single-page styling */
+}
+
+/* Individual page styling */
+.letter-page {
     background-color: #fdfaf2;
     background-image: url('paper-texture.webp');
     background-size: cover;
     width: 100%;
-    max-width: 800px;
     aspect-ratio: 8.5 / 11;
     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
@@ -28,11 +37,12 @@ body {
     animation: unfold 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
     opacity: 0;
     transform-origin: center center;
+    page-break-after: always;
+    break-after: page;
 }
 
 .letter-content {
     height: 100%;
-    overflow-y: auto;
 }
 
 /* --- START: MODIFIED SECTION FOR HEADER LAYOUT --- */
@@ -169,11 +179,11 @@ body {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
 
-    /* Your existing mobile styles */
-    .letter-container {
+    /* Mobile styles - maintain 8.5 x 11 aspect ratio */
+    .letter-page {
         padding: 3rem 2.5rem;
-        aspect-ratio: unset;
-        min-height: 80vh;
+        /* Keep the aspect-ratio: 8.5 / 11 for mobile */
+        /* Remove aspect-ratio: unset and min-height */
     }
 
     .salutation {

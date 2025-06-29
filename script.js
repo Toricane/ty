@@ -12,7 +12,7 @@ window.onload = function () {
             message: `
 Example text. Hello there!
 
-ABCDEFG, ths is another **paragraph**.
+ABCDEFG, this is another **paragraph**.
             `,
         },
         ms_hendrix: {
@@ -255,35 +255,157 @@ To see a specific message, add **?p=name** to the end of the URL.
     const pKey = urlParams.get("p");
     const p = pData[pKey] || pData["default"];
 
-    const dateEl = document.querySelector(".date");
-    const relativeTimeEl = document.querySelector(".relative-time");
-    const salutationEl = document.querySelector(".salutation");
-    const bodyEl = document.querySelector(".letter-body");
-    const audioContainer = document.getElementById("audio-player-container");
-
-    // Logic to create and inject the audio player
-    // 1. Check if the `audio` property is true.
-    // 2. If it is, create the audio player using the person's key as the filename.
-    if (p.audio && pKey) {
-        // Also check if pKey exists to avoid errors on the default page
-        const audioEl = document.createElement("audio");
-        audioEl.src = `audio/${pKey}.mp3`; // Dynamically creates the path
-        audioEl.controls = true;
-        audioEl.preload = "metadata";
-        audioContainer.appendChild(audioEl);
-    }
-
+    const letterContainer = document.querySelector(".letter-container");
     const staticDate = new Date(staticDateString);
 
-    dateEl.textContent = staticDate.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-    });
+    // Function to create a new page
+    function createPage() {
+        const page = document.createElement("div");
+        page.className = "letter-page";
 
-    dayjs.extend(window.dayjs_plugin_relativeTime);
-    relativeTimeEl.textContent = dayjs(staticDate).fromNow();
+        const content = document.createElement("div");
+        content.className = "letter-content";
+        page.appendChild(content);
 
-    salutationEl.textContent = `Dear ${p.name},`;
-    bodyEl.innerHTML = marked.parse(p.message);
+        return { page, content };
+    }
+
+    // Function to create header content
+    function createHeader(audioContainer) {
+        const headerBlock = document.createElement("div");
+        headerBlock.className = "header-block";
+
+        // Audio player container
+        const audioPlayerContainer = document.createElement("div");
+        audioPlayerContainer.id = "audio-player-container";
+
+        // Logic to create and inject the audio player
+        if (p.audio && pKey) {
+            const audioEl = document.createElement("audio");
+            audioEl.src = `audio/${pKey}.mp3`;
+            audioEl.controls = true;
+            audioEl.preload = "metadata";
+            audioPlayerContainer.appendChild(audioEl);
+        }
+
+        // Date block
+        const dateBlock = document.createElement("div");
+        dateBlock.className = "date-block";
+
+        const dateEl = document.createElement("p");
+        dateEl.className = "date";
+        dateEl.textContent = staticDate.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        });
+
+        const relativeTimeEl = document.createElement("p");
+        relativeTimeEl.className = "relative-time";
+        dayjs.extend(window.dayjs_plugin_relativeTime);
+        relativeTimeEl.textContent = dayjs(staticDate).fromNow();
+
+        dateBlock.appendChild(dateEl);
+        dateBlock.appendChild(relativeTimeEl);
+
+        headerBlock.appendChild(audioPlayerContainer);
+        headerBlock.appendChild(dateBlock);
+
+        return headerBlock;
+    }
+
+    // Function to create salutation
+    function createSalutation() {
+        const salutation = document.createElement("h1");
+        salutation.className = "salutation";
+        salutation.textContent = `Dear ${p.name},`;
+        return salutation;
+    }
+
+    // Function to create closing block
+    function createClosingBlock() {
+        const closingBlock = document.createElement("div");
+        closingBlock.className = "closing-block";
+
+        const leftDiv = document.createElement("div");
+
+        const closing = document.createElement("p");
+        closing.className = "closing";
+        closing.textContent = "Sincerely,";
+
+        const signature = document.createElement("p");
+        signature.className = "signature";
+        signature.textContent = "Prajwal Prashanth";
+
+        const extraLinks = document.createElement("div");
+        extraLinks.className = "extra-links";
+        extraLinks.innerHTML = `
+            <a href="https://youtu.be/u0_sOrrn7fo" target="_blank">🎓 Valedictorian Speech</a>
+            <span class="link-separator">|</span>
+            <a href="https://prajwalprashanth.substack.com/" target="_blank">📨 Newsletter</a>
+            <span class="link-separator">|</span>
+            <a href="mailto:prajwal028@outlook.com" target="_blank">📧 Email</a>
+            <span class="link-separator">|</span>
+            <a href="https://prajwal.is-a.dev/" target="_blank">🌐 Website</a>
+            <span class="link-separator">|</span>
+            <a href="https://instagram.com/prajwal.__.p/" target="_blank">📸 Instagram</a>
+            <span class="link-separator">|</span>
+            <a href="https://www.linkedin.com/in/prajwalprashanth/" target="_blank">🔗 LinkedIn</a>
+        `;
+
+        leftDiv.appendChild(closing);
+        leftDiv.appendChild(signature);
+        leftDiv.appendChild(extraLinks);
+
+        closingBlock.appendChild(leftDiv);
+
+        return closingBlock;
+    }
+
+    // Function to distribute content across pages
+    function distributeContent() {
+        // Create all the main elements
+        const header = createHeader();
+        const salutation = createSalutation();
+        const bodyContent = document.createElement("div");
+        bodyContent.className = "letter-body";
+        bodyContent.innerHTML = marked.parse(p.message);
+        const closingBlock = createClosingBlock();
+
+        // Gather all content nodes in order
+        const contentNodes = [
+            header,
+            salutation,
+            ...Array.from(bodyContent.childNodes),
+            closingBlock,
+        ];
+
+        let { page: currentPage, content: currentContent } = createPage();
+        letterContainer.appendChild(currentPage);
+
+        function fitsInPage(node) {
+            currentContent.appendChild(node);
+            const fits =
+                currentContent.scrollHeight <= currentPage.offsetHeight;
+            currentContent.removeChild(node);
+            return fits;
+        }
+
+        for (let i = 0; i < contentNodes.length; i++) {
+            const node = contentNodes[i].cloneNode(true);
+            if (fitsInPage(node)) {
+                currentContent.appendChild(node);
+            } else {
+                // Start new page for this block
+                const { page: newPage, content: newContent } = createPage();
+                letterContainer.appendChild(newPage);
+                currentPage = newPage;
+                currentContent = newContent;
+                currentContent.appendChild(node);
+            }
+        }
+    }
+
+    // Initialize the multi-page layout
+    distributeContent();
 };
