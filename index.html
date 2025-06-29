@@ -3,32 +3,47 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Personalized thank-you letters - a digital gratitude project"
+        />
+        <meta name="author" content="Prajwal Prashanth" />
+        <meta name="theme-color" content="#0056b3" />
         <title>A Note of Gratitude</title>
-        <!-- Google Fonts -->
+        <!-- Preconnect to external domains for performance -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <!-- Fonts with display swap for better loading -->
         <link
             href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@700&display=swap"
             rel="stylesheet"
         />
-        <!-- Font Awesome -->
+        <!-- Icons -->
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
         />
-        <!-- Our Stylesheet -->
+        <!-- Styles -->
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div class="letter-container">
-            <!-- Pages will be dynamically created here by JavaScript -->
-        </div>
-        <!-- The Marked.js library for Markdown support -->
+        <main
+            class="letter-container"
+            role="main"
+            aria-label="Thank you letter content"
+        >
+            <!-- Letter pages will be dynamically generated here -->
+        </main>
+        <!-- External libraries -->
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-        <!-- Day.js library and its RelativeTime plugin -->
         <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
-        <!-- Our main script file (must be last) -->
+        <!-- Application script -->
         <script src="script.js"></script>
     </body>
 </html>

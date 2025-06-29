@@ -1,43 +1,74 @@
-/* General page setup */
+/* CSS Custom Properties for consistent theming */
+:root {
+    --color-primary: #0056b3;
+    --color-secondary: #c9a46a;
+    --color-text-primary: #4a4a4a;
+    --color-text-secondary: #6c6c6c;
+    --color-text-muted: #999;
+    --color-background: #fdfaf2;
+    --color-background-gradient-start: #e8eaf0;
+    --color-background-gradient-end: #d9dce3;
+    --color-shadow: rgba(0, 0, 0, 0.2);
+    --color-border: #ccc;
+
+    --font-family-primary: 'Lora', serif;
+    --font-family-signature: 'Dancing Script', cursive;
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-xxl: 4rem;
+
+    --border-radius: 4px;
+    --box-shadow: 0 15px 45px var(--color-shadow);
+    --transition-duration: 0.2s;
+
+    --page-width: 800px;
+    --page-aspect-ratio: 8.5 / 11;
+    --page-padding: 4rem 5rem;
+}
+
+/* Base styles */
 body {
     margin: 0;
-    font-family: 'Lora', serif;
-    background: radial-gradient(circle, #e8eaf0 0%, #d9dce3 100%);
-    color: #4a4a4a;
+    font-family: var(--font-family-primary);
+    background: radial-gradient(circle, var(--color-background-gradient-start) 0%, var(--color-background-gradient-end) 100%);
+    color: var(--color-text-primary);
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    padding: 20px;
+    padding: var(--spacing-lg);
     box-sizing: border-box;
     perspective: 1000px;
 }
 
-/* The main letter "paper" - now acts as a container for multiple pages */
+/* Letter container - holds multiple pages */
 .letter-container {
     width: 100%;
-    max-width: 800px;
+    max-width: var(--page-width);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    /* Remove the aspect-ratio and other single-page styling */
+    gap: var(--spacing-lg);
 }
 
-/* Individual page styling */
+/* Individual letter page styling */
 .letter-page {
-    background-color: #fdfaf2;
+    background-color: var(--color-background);
     background-image: url('paper-texture.webp');
     background-size: cover;
     width: 100%;
-    max-width: 800px;
-    aspect-ratio: 8.5 / 11;
-    height: calc(800px * 11 / 8.5);
-    max-height: calc(800px * 11 / 8.5);
+    max-width: var(--page-width);
+    aspect-ratio: var(--page-aspect-ratio);
+    height: calc(var(--page-width) * 11 / 8.5);
+    max-height: calc(var(--page-width) * 11 / 8.5);
     min-height: 0;
     flex-shrink: 0;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    padding: 4rem 5rem;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    padding: var(--page-padding);
     box-sizing: border-box;
     margin: 0 auto;
     animation: unfold 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards;
@@ -51,27 +82,18 @@ body {
     height: 100%;
 }
 
-/* --- START: MODIFIED SECTION FOR HEADER LAYOUT --- */
-
-/* NEW: A Flexbox container for the top row */
+/* Header layout with flexbox for audio player and date */
 .header-block {
     display: flex;
     justify-content: space-between;
-    /* Pushes items to opposite ends */
     align-items: center;
-    /* Vertically aligns them */
-    margin-bottom: 3rem;
-    /* The margin now belongs to the parent */
+    margin-bottom: var(--spacing-xl);
 }
 
-/* MODIFIED: Audio Player is now a flex item */
 #audio-player-container {
     flex: 1;
-    /* Allows the player to take up available space */
     max-width: 65%;
-    /* Prevents it from getting too wide */
-    margin-right: 2rem;
-    /* Adds space between player and date */
+    margin-right: var(--spacing-lg);
 }
 
 #audio-player-container audio {
@@ -79,50 +101,46 @@ body {
     height: 40px;
 }
 
-/* MODIFIED: Date Block is now a flex item */
 .date-block {
     text-align: right;
     margin-bottom: 0;
-    /* Margin is now on the parent .header-block */
 }
-
-/* --- END: MODIFIED SECTION --- */
 
 .date {
     font-style: italic;
-    color: #6c6c6c;
+    color: var(--color-text-secondary);
     font-size: 0.9rem;
     margin: 0;
 }
 
 .relative-time {
     font-size: 0.8rem;
-    color: #999;
+    color: var(--color-text-muted);
     font-style: italic;
-    margin: 4px 0 0 0;
+    margin: var(--spacing-xs) 0 0 0;
 }
 
-/* Letter Body Styling */
+/* Letter content styling */
 .salutation {
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
     font-weight: 700;
     color: #333;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-lg);
 }
 
 .letter-body p {
-    font-size: 1.05rem;
+    font-size: clamp(0.8rem, 1.5vw, 1.05rem);
     line-height: 1.9;
     text-align: justify;
     margin-bottom: 1.05rem;
 }
 
-/* Closing Block Styling */
+/* Closing section with signature and links */
 .closing-block {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 3rem;
+    margin-top: var(--spacing-xl);
 }
 
 .closing {
@@ -130,46 +148,42 @@ body {
     margin: 0;
 }
 
-/* Your custom signature styling is preserved */
 .signature {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5rem;
-    color: #0056b3;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-family: var(--font-family-signature);
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    margin: var(--spacing-sm) 0;
 }
 
-/* Your custom extra-links styling is preserved */
 .extra-links {
-    /* margin-top: 1rem; */
     font-size: 0.8rem;
 }
 
 .extra-links a {
-    color: #6c6c6c;
+    color: var(--color-text-secondary);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-duration) ease;
 }
 
-.extra-links a:hover {
-    color: #0056b3;
+.extra-links a:hover,
+.extra-links a:focus {
+    color: var(--color-primary);
     text-decoration: underline;
+    outline: none;
 }
 
 .link-separator {
-    color: #ccc;
+    color: var(--color-border);
     margin: 0 0.2rem;
 }
 
-/* Your custom seal styling is preserved */
 .seal {
-    font-size: 3.5rem;
-    color: #c9a46a;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--color-secondary);
     opacity: 0.9;
-    /* padding-bottom: 1rem; */
 }
 
-/* Animations */
+/* Page unfold animation */
 @keyframes unfold {
     0% {
         opacity: 0;
@@ -182,41 +196,29 @@ body {
     }
 }
 
-/* Responsive adjustments for smaller screens */
+/* Responsive design for mobile devices */
 @media (max-width: 800px) {
+    :root {
+        --page-padding: 1.5rem;
+    }
+
     .letter-page {
         width: 92vw;
         height: calc(92vw * 11 / 8.5);
         max-width: 96vw;
         max-height: none;
-        aspect-ratio: 8.5 / 11;
-        padding: 1.5rem 1.5rem;
+        aspect-ratio: var(--page-aspect-ratio);
+        padding: var(--page-padding);
         margin: 0 auto;
         box-sizing: border-box;
     }
 
-    .salutation {
-        font-size: 1.3rem;
-    }
-
-    .letter-body p {
+    .date,
+    .relative-time {
         font-size: 0.8rem;
-        line-height: 1.7;
-    }
-
-    .signature {
-        font-size: 1.7rem;
-    }
-
-    .seal {
-        font-size: 2.5rem;
     }
 
     .extra-links {
         font-size: 0.7rem;
-    }
-
-    .date, .relative-time {
-        font-size: 0.8rem;
     }
 }
