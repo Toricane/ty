@@ -30,6 +30,19 @@
     --page-padding: 4rem 5rem;
 }
 
+/* Custom text selection highlighting */
+::selection {
+    background-color: rgba(255, 235, 59, 0.7) !important;
+    color: #333 !important;
+    text-shadow: none !important;
+}
+
+::-moz-selection {
+    background-color: rgba(255, 235, 59, 0.7) !important;
+    color: #333 !important;
+    text-shadow: none !important;
+}
+
 /* Base styles */
 body {
     margin: 0;
