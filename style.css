@@ -56,6 +56,26 @@ body {
     padding: var(--spacing-lg);
     box-sizing: border-box;
     perspective: 1000px;
+    position: relative;
+}
+
+/* iOS Safari fallback - fixed background using pseudo-element */
+@supports (-webkit-touch-callout: none) {
+    body {
+        background: none;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('background.webp') repeat;
+        z-index: -1;
+        pointer-events: none;
+    }
 }
 
 /* Letter container - holds multiple pages */
