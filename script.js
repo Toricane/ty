@@ -99,9 +99,12 @@ class LetterApp {
         audioPlayerContainer.id = "audio-player-container";
 
         // Add audio player if audio file exists
-        if (this.currentPerson.audio && this.getPersonKey()) {
+        if (
+            this.currentPerson.audio &&
+            typeof this.currentPerson.audio === "string"
+        ) {
             const audioElement = document.createElement("audio");
-            audioElement.src = `audio/${this.getPersonKey()}.mp3`;
+            audioElement.src = this.currentPerson.audio;
             audioElement.controls = true;
             audioElement.preload = "metadata";
             audioPlayerContainer.appendChild(audioElement);
