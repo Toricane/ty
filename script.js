@@ -397,7 +397,7 @@ class LetterApp {
      */
     fitsInPage(node, currentContent, currentPage) {
         currentContent.appendChild(node);
-        const buffer = 16; // px
+        const buffer = 24; // px
         const fits =
             currentContent.scrollHeight <= currentPage.offsetHeight - buffer;
         currentContent.removeChild(node);
