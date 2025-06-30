@@ -503,7 +503,7 @@ class LetterApp {
         // Dynamically set padding-bottom to control the final page's scroll stop
         if (pages.length > 0) {
             const pageHeight = pages[0].offsetHeight;
-            this.letterContainer.style.paddingBottom = `${pageHeight * 0.74}px`;
+            this.letterContainer.style.paddingBottom = `${pageHeight * 0.7}px`;
         }
 
         pages.forEach((page, index) => {
