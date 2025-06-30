@@ -433,21 +433,8 @@ class LetterApp {
     fitsInPage(node, currentContent, currentPage) {
         currentContent.appendChild(node);
         const buffer = 48; // px
-
-        let pageHeight = currentPage.offsetHeight;
-
-        // Fallback for browsers (like mobile Safari) that might not report
-        // offsetHeight correctly before the first full render.
-        if (pageHeight < 10) {
-            const pageStyle = window.getComputedStyle(currentPage);
-            const pageWidth = parseFloat(pageStyle.width);
-            const aspectRatio = 8.5 / 11;
-            if (pageWidth > 0) {
-                pageHeight = pageWidth / aspectRatio;
-            }
-        }
-
-        const fits = currentContent.scrollHeight <= pageHeight - buffer;
+        const fits =
+            currentContent.scrollHeight <= currentPage.offsetHeight - buffer;
         currentContent.removeChild(node);
         return fits;
     }
@@ -625,12 +612,30 @@ class LetterApp {
      * Initialize the application
      */
     init() {
-        try {
-            this.distributeContent();
-        } catch (error) {
-            console.error("Failed to initialize letter app:", error);
-            this.showErrorMessage();
-        }
+        // Use a ResizeObserver to wait for the first page to have a valid size
+        // before distributing content. This is a robust way to avoid race conditions
+        // on browsers like mobile Safari.
+        const { page: tempPage } = this.createPage();
+        tempPage.style.opacity = "0"; // Hide it from the user
+        this.letterContainer.appendChild(tempPage);
+
+        const observer = new ResizeObserver((entries) => {
+            // We only care about the first observation of a non-zero width.
+            if (entries[0].contentRect.width > 0) {
+                observer.disconnect(); // Stop observing
+                this.letterContainer.removeChild(tempPage); // Clean up the temporary page
+
+                // Now that we know the layout is stable, distribute the content.
+                try {
+                    this.distributeContent();
+                } catch (error) {
+                    console.error("Failed to initialize letter app:", error);
+                    this.showErrorMessage();
+                }
+            }
+        });
+
+        observer.observe(tempPage);
     }
 }
 
