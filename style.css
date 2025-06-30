@@ -34,7 +34,7 @@
 body {
     margin: 0;
     font-family: var(--font-family-primary);
-    background: radial-gradient(circle, var(--color-background-gradient-start) 0%, var(--color-background-gradient-end) 100%);
+    background: url('background.webp') repeat fixed;
     color: var(--color-text-primary);
     display: flex;
     justify-content: center;
