@@ -27,7 +27,7 @@
 
     --page-width: 800px;
     --page-aspect-ratio: 8.5 / 11;
-    --page-padding: 4rem 5rem;
+    --page-padding: clamp(2rem, 5vh, 4rem) clamp(2.5rem, 6.5vh, 5rem);
 }
 
 /* Custom text selection highlighting */
@@ -64,6 +64,7 @@ body {
     max-width: var(--page-width);
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--spacing-lg);
 }
 
@@ -72,11 +73,10 @@ body {
     background-color: var(--color-background);
     background-image: url('paper-texture.webp');
     background-size: cover;
-    width: 100%;
-    max-width: var(--page-width);
+    width: auto;
+    max-width: 100%;
+    height: 85vh;
     aspect-ratio: var(--page-aspect-ratio);
-    height: calc(var(--page-width) * 11 / 8.5);
-    max-height: calc(var(--page-width) * 11 / 8.5);
     min-height: 0;
     flex-shrink: 0;
     box-shadow: var(--box-shadow);
@@ -209,6 +209,25 @@ body {
     }
 }
 
+/* Styles for stacked page effect */
+.letter-container.multi-page-stack {
+    display: block;
+    /* Override flex layout */
+    position: relative;
+    padding-top: var(--spacing-lg);
+    /* padding-bottom is now set dynamically via JS to control the final page scroll. */
+}
+
+.multi-page-stack .letter-page {
+    position: sticky;
+    top: 5vh;
+    margin-bottom: var(--spacing-sm);
+    transform-origin: center;
+    transition:
+        transform 0.3s ease-out,
+        opacity 0.3s ease-out;
+}
+
 /* Responsive design for mobile devices */
 @media (max-width: 800px) {
     :root {
@@ -226,14 +245,19 @@ body {
     }
 
     .letter-page {
+        height: auto;
         width: 92vw;
-        height: calc(92vw * 11 / 8.5);
+        aspect-ratio: var(--page-aspect-ratio);
         max-width: 92vw;
         max-height: none;
-        aspect-ratio: var(--page-aspect-ratio);
         padding: var(--page-padding);
         margin: 0 auto;
         box-sizing: border-box;
+    }
+
+    .multi-page-stack .letter-page {
+        top: 2vh;
+        margin-bottom: var(--spacing-xs);
     }
 
     .date,

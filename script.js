@@ -255,6 +255,7 @@ class LetterApp {
         this.letterContainer = document.querySelector(".letter-container");
         this.staticDate = new Date(CONFIG.staticDate);
         this.currentPerson = this.getPersonFromURL();
+        this.pageTops = [];
 
         // Initialize dayjs plugin
         if (window.dayjs) {
@@ -397,7 +398,7 @@ class LetterApp {
      */
     fitsInPage(node, currentContent, currentPage) {
         currentContent.appendChild(node);
-        const buffer = 32; // px
+        const buffer = 48; // px
         const fits =
             currentContent.scrollHeight <= currentPage.offsetHeight - buffer;
         currentContent.removeChild(node);
@@ -447,10 +448,116 @@ class LetterApp {
                     currentContent.appendChild(clonedNode);
                 }
             }
+
+            // After distributing content, set up for stacking animation
+            this.setupPageStacking();
         } catch (error) {
             console.error("Error distributing content:", error);
             this.showErrorMessage();
         }
+    }
+
+    /**
+     * Sets up the page stacking effect if there are multiple pages.
+     */
+    setupPageStacking() {
+        const pages = this.letterContainer.querySelectorAll(".letter-page");
+        if (pages.length <= 1) return;
+
+        this.letterContainer.classList.add("multi-page-stack");
+
+        // Dynamically set padding-bottom to control the final page's scroll stop
+        if (pages.length > 0) {
+            const pageHeight = pages[0].offsetHeight;
+            this.letterContainer.style.paddingBottom = `${pageHeight * 0.74}px`;
+        }
+
+        pages.forEach((page, index) => {
+            page.id = `page-${index}`;
+            // Store initial, static top offsets before any scrolling
+            this.pageTops.push(page.offsetTop);
+        });
+
+        let isTicking = false;
+        window.addEventListener("scroll", () => {
+            if (!isTicking) {
+                window.requestAnimationFrame(() => {
+                    this.updatePageStyles(pages);
+                    isTicking = false;
+                });
+                isTicking = true;
+            }
+        });
+
+        // Initial call to set styles
+        this.updatePageStyles(pages);
+    }
+
+    /**
+     * Updates page styles on scroll for the stacking effect.
+     */
+    updatePageStyles(pages) {
+        const scrollY = window.scrollY;
+        const topStickyOffset = window.innerHeight * 0.05; // 5vh from CSS
+
+        let activePageIndex = 0;
+        for (let i = 0; i < this.pageTops.length; i++) {
+            if (scrollY >= this.pageTops[i] - topStickyOffset) {
+                activePageIndex = i;
+            }
+        }
+
+        const activePageStickStart =
+            this.pageTops[activePageIndex] - topStickyOffset;
+        const activePageScrollRange = pages[activePageIndex].offsetHeight;
+        const progress =
+            (scrollY - activePageStickStart) / activePageScrollRange;
+        const clampedProgress = Math.max(0, Math.min(1, progress));
+
+        pages.forEach((page, index) => {
+            const stackIndex = index - activePageIndex;
+
+            if (stackIndex < 0) {
+                // Pages scrolled past
+                page.style.transform = `translateY(-120px) scale(1)`;
+                page.style.opacity = "0";
+            } else if (stackIndex === 0) {
+                // The active page
+                let currentProgress = clampedProgress;
+                // For the last page, allow progress to go beyond 1 to animate it away
+                if (index === pages.length - 1) {
+                    currentProgress = progress;
+                }
+
+                if (currentProgress <= 1) {
+                    const translateY = -currentProgress * 80;
+                    page.style.transform = `translateY(${translateY}px) scale(1)`;
+                    page.style.opacity = "1";
+                } else {
+                    // Last page, after its main scroll, fade it out
+                    const lastPageProgress = Math.min(
+                        1,
+                        (currentProgress - 1) * 5
+                    );
+                    const translateY = -80 - lastPageProgress * 40;
+                    const opacity = 1 - lastPageProgress;
+                    page.style.transform = `translateY(${translateY}px) scale(1)`;
+                    page.style.opacity = `${opacity}`;
+                }
+            } else {
+                // Pages in the stack below
+                const baseTranslateY = stackIndex * 20;
+                const animatedTranslateY = clampedProgress * 20;
+                const translateY = baseTranslateY - animatedTranslateY;
+
+                const baseScale = 1 - stackIndex * 0.05;
+                const animatedScale = clampedProgress * 0.05;
+                const scale = baseScale + animatedScale;
+
+                page.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                page.style.opacity = "1";
+            }
+        });
     }
 
     /**
