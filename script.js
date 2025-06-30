@@ -431,12 +431,36 @@ class LetterApp {
      * Check if content fits in current page
      */
     fitsInPage(node, currentContent, currentPage) {
-        currentContent.appendChild(node);
+        // Create a temporary container to measure content
+        const measureContainer = document.createElement("div");
+        measureContainer.style.cssText = `
+            position: absolute;
+            visibility: hidden;
+            width: ${currentPage.clientWidth}px;
+            padding: ${window.getComputedStyle(currentPage).padding};
+        `;
+        document.body.appendChild(measureContainer);
+
+        // Clone the existing content and the new node
+        measureContainer.innerHTML = currentContent.innerHTML;
+        measureContainer.appendChild(node.cloneNode(true));
+
+        // Get the height and compare
+        const contentHeight = measureContainer.offsetHeight;
+        const pageHeight = currentPage.clientHeight;
         const buffer = 48; // px
-        const fits =
-            currentContent.scrollHeight <= currentPage.offsetHeight - buffer;
-        currentContent.removeChild(node);
-        return fits;
+
+        // Cleanup
+        document.body.removeChild(measureContainer);
+
+        // Debug log for iOS
+        console.log(
+            `Content height: ${contentHeight}, Page height: ${pageHeight}, Fits: ${
+                contentHeight <= pageHeight - buffer
+            }`
+        );
+
+        return contentHeight <= pageHeight - buffer;
     }
 
     /**
@@ -454,34 +478,65 @@ class LetterApp {
                 : this.currentPerson.message;
             const closingBlock = this.createClosingBlock();
 
-            // Gather all content nodes
-            const contentNodes = [
-                header,
-                salutation,
-                ...Array.from(bodyContent.childNodes),
-                closingBlock,
-            ];
-
+            // Create first page
             let { page: currentPage, content: currentContent } =
                 this.createPage();
             this.letterContainer.appendChild(currentPage);
 
-            // Distribute content across pages
-            for (const node of contentNodes) {
-                const clonedNode = node.cloneNode(true);
+            // Add header and salutation to first page
+            currentContent.appendChild(header);
+            currentContent.appendChild(salutation);
 
-                if (this.fitsInPage(clonedNode, currentContent, currentPage)) {
-                    currentContent.appendChild(clonedNode);
+            // Process body paragraphs
+            const paragraphs = Array.from(bodyContent.children);
+            let currentParagraphGroup = document.createElement("div");
+
+            // Try to group paragraphs together
+            paragraphs.forEach((paragraph, index) => {
+                const testGroup = currentParagraphGroup.cloneNode(true);
+                testGroup.appendChild(paragraph.cloneNode(true));
+
+                if (this.fitsInPage(testGroup, currentContent, currentPage)) {
+                    currentParagraphGroup.appendChild(
+                        paragraph.cloneNode(true)
+                    );
                 } else {
-                    // Start new page
-                    const { page: newPage, content: newContent } =
-                        this.createPage();
-                    this.letterContainer.appendChild(newPage);
-                    currentPage = newPage;
-                    currentContent = newContent;
-                    currentContent.appendChild(clonedNode);
+                    // If current group has content, add it to the page
+                    if (currentParagraphGroup.children.length > 0) {
+                        currentContent.appendChild(currentParagraphGroup);
+                    }
+
+                    // Start new page if needed
+                    if (index < paragraphs.length) {
+                        const { page: newPage, content: newContent } =
+                            this.createPage();
+                        this.letterContainer.appendChild(newPage);
+                        currentPage = newPage;
+                        currentContent = newContent;
+
+                        // Start new paragraph group with current paragraph
+                        currentParagraphGroup = document.createElement("div");
+                        currentParagraphGroup.appendChild(
+                            paragraph.cloneNode(true)
+                        );
+                    }
                 }
+            });
+
+            // Add any remaining paragraphs
+            if (currentParagraphGroup.children.length > 0) {
+                currentContent.appendChild(currentParagraphGroup);
             }
+
+            // Handle closing block
+            if (!this.fitsInPage(closingBlock, currentContent, currentPage)) {
+                const { page: newPage, content: newContent } =
+                    this.createPage();
+                this.letterContainer.appendChild(newPage);
+                currentPage = newPage;
+                currentContent = newContent;
+            }
+            currentContent.appendChild(closingBlock);
 
             // After distributing content, set up for stacking animation
             this.setupPageStacking();
