@@ -1,6 +1,5 @@
 // Configuration and data
 const CONFIG = {
-    staticDate: "2025-06-20T08:00:00",
     defaultPerson: "default",
 };
 
@@ -9,6 +8,7 @@ const PERSON_DATA = {
     example: {
         name: "Example Person",
         audio: true,
+        datetime: "2025-06-20T08:00:00",
         message: `
 Example text. Hello there!
 
@@ -17,42 +17,49 @@ ABCDEFG, this is another **paragraph**.
     },
     ms_hendrix: {
         name: "Ms. Hendrix",
+        datetime: "2025-06-20T08:00:00",
         message: `
 I hope this letter finds you well. Thank you for being such a wonderful teacher for Humanities 9! I really enjoyed being in your class. I still remember the time when we made Voyageur songs, and my group remixed *"Old Town Road"*. Being in your class made me understand the value of building connections with teachers and classmates, especially after the pandemic. Thank you for being such a nice teacher, and I hope to keep in touch with you in the future!
         `,
     },
     mr_sandhu: {
         name: "Mr. Sandhu",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my Science 9 teacher! I liked how energetically you taught us about all the science concepts. I remember when we made the alien periodic table, and when you tried to get people to sing the elements song. I also vividly remember watching *The Day After Tomorrow* in class, and I liked how chill the class was. Also, I aspire to be more fit like you, and your workouts are really tough! Thank you for being such a nice teacher, and I hope to keep in touch with you in the future!
         `,
     },
     mr_mayan: {
         name: "Mr. Mayan",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my PE 8, PE 9, and Math 9 teacher! I still have a photo of us running Garden City Lands, taken by my Mom from her car. Back then, I struggled to run continuously. I made it a goal to improve my cardio, and took Fitness and Conditioning 11/12 to improve my fitness. Now, I can easily run Garden City Lands in 15 minutes! Thank you for instilling the value of fitness in me, and for being such a nice teacher. I hope to keep in touch with you in the future!
         `,
     },
     mr_henders: {
         name: "Mr. Henders",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my Career Life Education 10 teacher! I enjoyed listening to all the diverse presenters, presentations, and workshops. I liked your bubbly personality, which made the atmosphere of the class very welcoming and fun. Thank you for always saying *"Hi"* to me in the hallways, and for always being open to have deep, philosophical conversations with me. I really enjoyed the time I spent with you, and I hope to keep in touch with you in the future!
         `,
     },
     ms_lew: {
         name: "Ms. Lew",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my French 10 teacher! I liked how interactive your lessons were. I still fondly remember the times when Meshroon and I would burst into laughter during class, or have fun in French. I liked how patient and kind you were, especially for the speaking tests. I'm also grateful for your involvement within Student Voice and always keeping your room open for us to eat lunch. I really enjoyed the time I spent with you, and I hope to keep in touch with you in the future!
         `,
     },
     mr_f_chiang: {
         name: "Mr. F. Chiang",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my advisory, PE 10, and Fitness & Conditioning 12 teacher! I'm grateful for all the times you've pushed me to be more fit, and for always being there to support me through the ups and downs of my life. I remember you saying that being both smart and fit at the same time is awesome, and I aspire to be like that. Thank you for letting me spend time with my friends from the advisory next door, and for quizzing me on my math skills out of the blue. I really enjoyed the time I spent with you, and I hope to keep in touch with you in the future!
         `,
     },
     ms_p: {
         name: "Ms. Padmanabhan",
+        datetime: "2025-06-20T08:00:00",
         message: `
 I can't believe how fast time has flown by! I think the first time I saw you was during the Pascal math contest in grade 9. I was a little *kid*, new to the school, but had a passion for math and had done math contests before.
 
@@ -65,6 +72,7 @@ I also loved how you were so open to hearing my ideas and projects, like JARVIS,
     },
     ms_cholevas: {
         name: "Ms. Cholevas",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my Social Studies 10 and French 11 teacher! I especially enjoyed the current events projects, which helped me improve my public speaking skills and my ability to present information in a clear and concise manner. I enjoyed your style of teaching because I'm someone who learns well through lots of practice. The contrast between your projecting voice and pin-drop silence in the classroom was very unique. In French, I liked how intuitively you explained the topics on the whiteboard with your colourful pens. I had lots of fun making the French advertisement, and I'm really proud of the work which was put into it. I was surprised when I found out that you used it as an example for the next year's class! Thank you for being such a nice teacher, and I hope to keep in touch with you in the future!
 
@@ -73,6 +81,7 @@ P.S.: Here's the [French advertisement project](https://photos.app.goo.gl/HJXwLL
     },
     mr_klose: {
         name: "Mr. Klose",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for always supporting me throughout high school! I've known you since the Computer Studies 10 class in grade 9, and I loved sharing my passion for computer programming with you. Thank you for being so open to the sharing of my ideas and projects, and for always pushing me to strive for more.
 
@@ -81,12 +90,14 @@ I really enjoyed the times when you would talk to me about cool ideas or just ra
     },
     mr_mcdowell: {
         name: "Mr. McDowell",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my BC First Peoples 12 teacher! I enjoyed the self-directed nature of the class, and I liked the stories which you would calmly tell us. I liked how you were so open to talking about your life experiences and about things that I'm up to. I'm grateful for the times hwne you would say *"Hi"* to me in the hallways, and for always being open to have deep, philosophical conversations with me. I wish I spent more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     mr_luk: {
         name: "Mr. Luk",
+        datetime: "2025-06-20T08:00:00",
         message: `
 What will I do without you? I still cannot believe that I'm graduating. I'll miss you so much!
 
@@ -107,6 +118,7 @@ P.S.: ***Pomegranate** ions are yummy!*
     },
     mr_b_chiang: {
         name: "Mr. B. Chiang",
+        datetime: "2025-06-20T08:00:00",
         message: `
 First of all, thank you for recommending me to join The Knowledge Society (TKS) program. I believe that it was one of the best decisions I've made in my life, and it has helped me grow so much as a person. I still remember the time when you told me about TKS, and how you said that I would be a great fit for it. I really appreciate your support and encouragement.
 
@@ -117,6 +129,7 @@ Last, but not least, thank you for always being there for me, through my ups and
     },
     ms_datoo: {
         name: "Ms. Datoo",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for always supporting me throughout high school! I loved how you made time for me on your busy schedule for Model UN Club and for just talking about things that I'm up to. I liked hearing your stories and perspectives on global issues, conferences that you've attended, and your research projects which you're involved in. You inspire me to push myself and be involved in things which I'm passionate about so I can tell my own stories and be an interesting person, like you.
 
@@ -129,6 +142,7 @@ Last, but not least, thank you for supporting me through difficult times. I'll m
     },
     mr_lou: {
         name: "Mr. Lou",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being such a nice teacher. I loved the way you taught me physics, it was very intuitive to me because it was always step-by-step and you used very interesting examples. I still remember when you used to use Jamboard and how you were frustrated with OneNote! Many people don't realize how funny and lighthearted you are. I will remember that example when you were talking about action-reaction forces and you said *"If I punch you, you punch me back!"* Also when you said we need to *"strip the clothes"* to isolate the variables in physics problems. I'll never forget how much fun I had in your class, and how you always made it enjoyable.
 
@@ -137,6 +151,7 @@ Thank you for taking us to UBC Physics Olympics, and also helping us with the Kw
     },
     ms_daly: {
         name: "Ms. Daly",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my AP English Language and Composition 12 teacher! What I find interesting is how well you prepared us for the AP exam throughout the year. I enjoyed how thoughtfully you taught us not just the AP exam content, but also how to write well and how to think critically about the texts we read. I especially enjoyed our Socratic seminars, which was both daunting and exciting at the same time. Thank you for also stepping up to be at the RichMUN conference, and for being so supportive of the Model UN Club.
 
@@ -145,102 +160,119 @@ I'm grateful that you chose me to be the class valedictorian! Although I had not
     },
     ms_lewin: {
         name: "Ms. Lewin",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my CLC teacher! Although I haven't interacted with you much, I'm really grateful for the opportunities which you've presented to me, such as the Human Library event. Thank you for being supportive of my ideas and projects, and for always being open to hearing what I have to say. I wish I spent some more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     ms_izmirli: {
         name: "Ms. Izmirli",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being my Law Studies 12 teacher! To be honest, I enjoyed the Question of the Day (QOTD). As someone who didn't have many friends coming into the class (since I was one of the four grade 12s), I liked how the QOTD let me get to know my classmates better. I also liked how we focused a lot on argumentation and critical thinking, which actually prepared me a lot for the AP English exam. I enjoyed the times when I participated in debates, too. Thank you for being my teacher, and I hope to keep in touch with you in the future!
         `,
     },
     mr_li: {
         name: "Mr. Li",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Although I have never had you as a teacher, you've taught me so much about science and math through preparation for the Kwantlen Science Challenge and teh CEMC contests. I remember the times when we practiced Jeopardy questions in your room, did problems of the week, and also when I built the popsicle stick bridge. I'm grateful for all the time you spent with me, and for always being open to hearing my ideas and projects. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     mr_hockley: {
         name: "Mr. Hockley",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for sponsoring the Green Team! I enjoyed spending time advocating for the environment and eating lunch in your room. Although you weren't my teacher, I enjoyed talking with you about things that I'm up to and just in general, too. I hope to keep in touch with you in the future!
         `,
     },
     mr_leung: {
         name: "Mr. Leung",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Although you have never taught me, I'm thankful for the time I've spent with you in Chess Club and Student Voice. I'm grateful for the opportunities I've had to be able to share my opinions about the school community. I enjoyed seeing your smiling face whenever we met. I'm really thankful for the trust you've put in me to represent my grad class. Thanks for keeping your room open for lunch, thank you for supporting me throughout high school, and I hope to keep in touch with you in the future!
         `,
     },
     mr_wang: {
         name: "Mr. Wang",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for taking me on the biology field trip, even though I didn't take biology, like at all! Also, I still remember the time when you walked by a table in Mr. Luk's room where I was sitting with Hubert, Sara, and other people from AP Biology. You said "Good job" to me, and I don't know the context :)
         `,
     },
     ms_mei: {
         name: "Ms. Mei",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you so much for being the teacher librarian! I loved your soft tone and how kind you were to everyone. Thank you for the times when you were curious about what I've been up to. I enjoyed preparing for the Kwantlen Science Challenge with you, and I learned a lot from you. I enjoyed going on the UBC field trip with you as well. Thank you for watching my capstone presentation, and for always being supportive of my ideas and projects. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     ms_wu: {
         name: "Ms. Wu",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being the library technician! I appreciated all the times when you would help me with printing documents and 3D printing parts for projects. I remember sometimes you would let me print more without charging me, and I really appreciate that. I enjoyed the times when you would talk to me about things that I'm up to. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     ms_sadler: {
         name: "Ms. Sadler",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for taking me on the UBC field trip! Although it was my second time on this exact field trip, the artwork was still intriguing and I learned a lot from it. I appreciate the times you've printed my documents for me, and for always being so kind and helpful. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     mr_nguyen: {
         name: "Mr. Nguyen",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for the time when you supported us at the RichMUN conference! I liked how helpful and kind you were, and how you always made sure that we were doing well. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     ms_hans: {
         name: "Ms. Hans",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for the times when you sponsored our MUN club meetings! I really appreciate your support and encouragement. I also enjoyed the time when you taught us how to quote sources, which I still use to this day. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     mr_thomas: {
         name: "Mr. Thomas",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for all the times that you spent talking to me in the hallways! I really enjoyed our conversations, and I liked how you were always so open to hearing my ideas and projects. I enjoyed it when you taught our math class when you were a student teacher. I wish I had spent more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     mr_blair: {
         name: "Mr. Blair",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you so much for everything that you do! I know that you are very busy around the school, but I appreciate all of the times when you would interact with me or other students. I'm grateful for the times we've chit-chatted together, about academics, projects, and life in general. Thank you for your involvement in Student Voice, where I was able to share my opinions about the school community. Thank you for vouching for me when picking the role of class valedictorian! I really enjoyed the time I spent with you, and I hope to keep in touch with you in the future!
         `,
     },
     ms_macdonald: {
         name: "Ms. MacDonald",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for organizing all the fun events at school, especially the graduation events! Thank you for the times when you gave me the awards in grade 11 and 12, and for choosing me to be the class valedictorian! I really enjoyed the time I spent with you, and I hope to keep in touch with you in the future!
         `,
     },
     mr_o: {
         name: "Mr. Onukwulu",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for being a cool guy with a great vibe! I liked your personality and all the times that you'd say *"Let's go to class!"* in the morning when I was late. Thank youf or being there for me! I wish I had spent more time with you, and I hope to keep in touch with you in the future!
         `,
     },
     ms_chin: {
         name: "Ms. Chin",
+        datetime: "2025-06-20T08:00:00",
         message: `
 Thank you for all the times you've amended the daily announcements to include announcements from my clubs! I really appreciate the work that you do behind the scenes to make the school run smoothly. Thank you!
         `,
     },
     default: {
         name: "visitor",
+        datetime: "2025-06-20T08:00:00",
         message: `
 I made this website to give personalized thank-you letters to the people in my life.
 
@@ -253,7 +285,6 @@ To see a specific message, add **?p=name** to the end of the URL.
 class LetterApp {
     constructor() {
         this.letterContainer = document.querySelector(".letter-container");
-        this.staticDate = new Date(CONFIG.staticDate);
         this.currentPerson = this.getPersonFromURL();
         this.pageTops = [];
 
@@ -310,22 +341,25 @@ class LetterApp {
         const dateBlock = document.createElement("div");
         dateBlock.className = "date-block";
 
-        const dateElement = document.createElement("p");
-        dateElement.className = "date";
-        dateElement.textContent = this.staticDate.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-        });
+        if (this.currentPerson.datetime) {
+            const staticDate = new Date(this.currentPerson.datetime);
+            const dateElement = document.createElement("p");
+            dateElement.className = "date";
+            dateElement.textContent = staticDate.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
 
-        const relativeTimeElement = document.createElement("p");
-        relativeTimeElement.className = "relative-time";
-        relativeTimeElement.textContent = window.dayjs
-            ? window.dayjs(this.staticDate).fromNow()
-            : "recently";
+            const relativeTimeElement = document.createElement("p");
+            relativeTimeElement.className = "relative-time";
+            relativeTimeElement.textContent = window.dayjs
+                ? window.dayjs(staticDate).fromNow()
+                : "recently";
 
-        dateBlock.appendChild(dateElement);
-        dateBlock.appendChild(relativeTimeElement);
+            dateBlock.appendChild(dateElement);
+            dateBlock.appendChild(relativeTimeElement);
+        }
 
         headerBlock.appendChild(audioPlayerContainer);
         headerBlock.appendChild(dateBlock);
