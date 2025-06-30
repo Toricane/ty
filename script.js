@@ -612,12 +612,15 @@ class LetterApp {
      * Initialize the application
      */
     init() {
-        try {
-            this.distributeContent();
-        } catch (error) {
-            console.error("Failed to initialize letter app:", error);
-            this.showErrorMessage();
-        }
+        // Delay content distribution to ensure layout is stable, especially on mobile
+        setTimeout(() => {
+            try {
+                this.distributeContent();
+            } catch (error) {
+                console.error("Failed to initialize letter app:", error);
+                this.showErrorMessage();
+            }
+        }, 100);
     }
 }
 
