@@ -433,8 +433,21 @@ class LetterApp {
     fitsInPage(node, currentContent, currentPage) {
         currentContent.appendChild(node);
         const buffer = 48; // px
-        const fits =
-            currentContent.scrollHeight <= currentPage.offsetHeight - buffer;
+
+        let pageHeight = currentPage.offsetHeight;
+
+        // Fallback for browsers (like mobile Safari) that might not report
+        // offsetHeight correctly before the first full render.
+        if (pageHeight < 10) {
+            const pageStyle = window.getComputedStyle(currentPage);
+            const pageWidth = parseFloat(pageStyle.width);
+            const aspectRatio = 8.5 / 11;
+            if (pageWidth > 0) {
+                pageHeight = pageWidth / aspectRatio;
+            }
+        }
+
+        const fits = currentContent.scrollHeight <= pageHeight - buffer;
         currentContent.removeChild(node);
         return fits;
     }
@@ -612,15 +625,12 @@ class LetterApp {
      * Initialize the application
      */
     init() {
-        // Delay content distribution to ensure layout is stable, especially on mobile
-        setTimeout(() => {
-            try {
-                this.distributeContent();
-            } catch (error) {
-                console.error("Failed to initialize letter app:", error);
-                this.showErrorMessage();
-            }
-        }, 100);
+        try {
+            this.distributeContent();
+        } catch (error) {
+            console.error("Failed to initialize letter app:", error);
+            this.showErrorMessage();
+        }
     }
 }
 
